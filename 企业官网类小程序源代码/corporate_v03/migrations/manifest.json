@@ -1,0 +1,40 @@
+{
+  "version": "20260731135631",
+  "siteName": "企业官网 · 营销爆款",
+  "tables": [
+    {
+      "name": "contact_corporate",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "formId": "contact_corporate",
+      "formName": "在线留言",
+      "tableName": "contact_corporate",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言内容",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}

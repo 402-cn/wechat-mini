@@ -1,0 +1,34 @@
+<view class="mp-shell has-tab"><wxs module="asset" src="../../../utils/mp_asset.wxs"></wxs>
+<view class="page">
+<view class="title-bar mp-card"><text class="title">资讯动态</text><text class="sub">烘焙甜品最新资讯</text></view>
+<view class="article-box mp-card"><view class="article-section-head"><text class="article-section-title">文章列表</text><navigator url="/packageSys/pages/article-list/article-list?title=%E6%96%87%E7%AB%A0%E5%88%97%E8%A1%A8&component_id=bakery_v05_article_02" class="article-section-more" hover-class="none">更多</navigator></view><view class="article-list">
+  <view class="article-item" wx:for="{{articles_bakery_v05_article_02}}" wx:for-item="item" wx:for-index="idx" wx:key="idx" bindtap="goArticle" data-id="{{item.id}}">
+    <image wx:if="{{item.coverSrc}}" class="article-cover" src="{{item.coverSrc}}" mode="aspectFill" lazy-load="{{false}}"/>
+    <view class="article-body">
+      <text class="article-title">{{item.title}}</text>
+      <text class="article-summary">{{item.summary}}</text>
+    </view>
+  </view>
+  <view wx:if="{{articles_bakery_v05_article_02.length == 0}}" class="article-empty">暂无文章</view>
+</view></view>
+<view class="swiper-wrap mp-card">
+  <swiper wx:if="{{swiper_bakery_v05_article_03.items && swiper_bakery_v05_article_03.items.length}}" style="height:{{(swiper_bakery_v05_article_03.height||280)}}rpx" autoplay="{{swiper_bakery_v05_article_03.autoplay !== false}}" interval="{{(swiper_bakery_v05_article_03.interval||4000)}}" indicator-dots="true" circular="true">
+    <swiper-item wx:for="{{swiper_bakery_v05_article_03.items}}" wx:for-item="slide" wx:key="index">
+      <image class="swiper-img" src="{{slide.imageSrc}}" mode="aspectFill" lazy-load="{{false}}"/>
+    </swiper-item>
+  </swiper>
+  <view wx:else class="article-empty">加载中...</view>
+</view>
+</view>
+<view class="app-modal-mask" wx:if="{{appModalShow}}" catchtouchmove="true">
+  <view class="app-modal-box" catchtap="noop">
+    <text class="app-modal-title">{{appModalTitle}}</text>
+    <text class="app-modal-content">{{appModalContent}}</text>
+    <button class="app-modal-btn" bindtap="closeAppModal">确定</button>
+  </view>
+</view><view class="app-tabbar-mp" wx:if="{{showMpTabBar}}">
+  <view wx:for="{{mpTabItems}}" wx:key="page_key" class="tab-item-mp" catchtap="onMpTabSwitch" data-key="{{item.page_key}}">
+    <image class="tab-icon-mp" src="{{item.page_key == mpActiveTab ? item.iconActive : item.icon}}" mode="aspectFit"/>
+    <text class="tab-text-mp" style="color:{{item.page_key == mpActiveTab ? mpTabPrimary : '#999999'}}">{{item.text}}</text>
+  </view>
+</view></view>

@@ -1,0 +1,7 @@
+-- 文章演示种子数据（封面与画布 articleCover 一致）
+INSERT IGNORE INTO article_categories (id, name, sort_order, status) VALUES (1, '默认分类', 0, 1);
+INSERT IGNORE INTO articles (id, title, cover, summary, content, view_count, is_demo, is_featured, sort_order, status) VALUES (1, '欢迎来到车生活', './assets/images/auto_7.jpg', '部署后可在后台编辑', '<p><strong>本文为演示数据</strong>，安装后可在 PHP 后台「文章管理」中修改或删除。正式运营请替换为真实内容。</p><!--ADMIN_GUIDE_FOOTER-->', 128, 0, 1, 99, 1);
+INSERT IGNORE INTO articles (id, title, cover, summary, content, view_count, is_demo, is_featured, sort_order, status) VALUES (2, '车生活新品发布', './assets/images/auto_8.jpg', '演示文章仅供参考', '<p>演示正文。部署后可在 PHP 后台「文章管理」中修改或删除。</p><!--ADMIN_GUIDE_FOOTER-->', 86, 0, 1, 98, 1);
+INSERT IGNORE INTO articles (id, title, cover, summary, content, view_count, is_demo, is_featured, sort_order, status) VALUES (3, '会员权益说明', './assets/images/auto_9.jpg', '演示数据', '<p>演示正文。部署后可在 PHP 后台「文章管理」中修改或删除。</p><!--ADMIN_GUIDE_FOOTER-->', 203, 0, 1, 97, 1);
+INSERT IGNORE INTO articles (id, title, cover, summary, content, view_count, is_demo, is_featured, sort_order, status) VALUES (4, '服务与配送说明', './assets/images/auto_48.jpg', '演示数据', '<p>演示正文。部署后可在 PHP 后台「文章管理」中修改或删除。</p><!--ADMIN_GUIDE_FOOTER-->', 57, 0, 1, 96, 1);
+INSERT IGNORE INTO articles (id, title, cover, summary, content, view_count, is_demo, is_featured, sort_order, status) VALUES (5, '常见问题解答', './assets/images/auto_49.jpg', '演示数据', '<p>演示正文。部署后可在 PHP 后台「文章管理」中修改或删除。</p><!--ADMIN_GUIDE_FOOTER-->', 91, 0, 1, 95, 1);

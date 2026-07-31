@@ -1,0 +1,7 @@
+# 将 index.php 放在 index.html 之前，确保未安装时首页被拦截：
+# index index.php index.html;
+
+# 后台上传图片（默认 1m 会 413），建议至少 20m：
+# client_max_body_size 20m;
+
+# 完整示例见 nginx_upload.conf.example

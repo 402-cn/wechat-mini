@@ -1,0 +1,23 @@
+var remoteAsset = function(root, path) {
+  if (!path) return '';
+  if (!root) return '';
+  if (path.indexOf('http://') === 0 || path.indexOf('https://') === 0) return path;
+  return root + (path.indexOf('/') === 0 ? path : '/' + path);
+};
+var url = function(u, root) {
+  if (!u) return '';
+  if (u.indexOf('http://') === 0 || u.indexOf('https://') === 0 || u.indexOf('data:') === 0) return u;
+  var name = u.split('/').pop().split('?')[0];
+  if (u.indexOf('/uploads/stock/') === 0 || u.indexOf('/uploads/images/') === 0) {
+    return remoteAsset(root, '/assets/images/' + name);
+  }
+  if (u.indexOf('/uploads/') === 0) return remoteAsset(root, u);
+  if (u.indexOf('./assets/uploads/') === 0) return remoteAsset(root, u.slice(1));
+  if (u.indexOf('./assets/images/') === 0 || u.indexOf('/assets/images/') === 0) {
+    return remoteAsset(root, '/assets/images/' + name);
+  }
+  if (u.indexOf('/assets/tab/') === 0) return u;
+  if (u.indexOf('/assets/') === 0) return remoteAsset(root, u);
+  return u;
+};
+module.exports.url = url;

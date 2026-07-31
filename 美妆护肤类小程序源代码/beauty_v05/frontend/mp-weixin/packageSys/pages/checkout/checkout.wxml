@@ -1,0 +1,27 @@
+<view class="mp-shell has-tab"><view class="page">
+  <view wx:if="{{addresses.length}}" class="addr-pick">
+    <text class="pick-label">地址簿</text>
+    <picker mode="selector" range="{{addresses}}" range-key="label" bindchange="pickAddress">
+      <view class="pick-val">{{addrLabel || '选择已有地址'}}</view>
+    </picker>
+  </view>
+  <view class="form-row"><text>收货人</text><input model:value="{{name}}" placeholder="姓名"/></view>
+  <view class="form-row"><text>手机号</text><input model:value="{{phone}}" placeholder="手机"/></view>
+  <view class="form-row"><text>地址</text><textarea model:value="{{addr}}" placeholder="详细地址"/></view>
+  <view class="pay-btns">
+    <button wx:if="{{!wxPayEnabled}}" class="btn-balance" bindtap="payBalance">余额支付</button>
+    <button wx:if="{{wxPayEnabled}}" class="btn-wx" bindtap="payWx">立即支付</button>
+  </view>
+</view>
+<view class="app-modal-mask" wx:if="{{appModalShow}}" catchtouchmove="true">
+  <view class="app-modal-box" catchtap="noop">
+    <text class="app-modal-title">{{appModalTitle}}</text>
+    <text class="app-modal-content">{{appModalContent}}</text>
+    <button class="app-modal-btn" bindtap="closeAppModal">确定</button>
+  </view>
+</view><view class="app-tabbar-mp" wx:if="{{showMpTabBar}}">
+  <view wx:for="{{mpTabItems}}" wx:key="page_key" class="tab-item-mp" catchtap="onMpTabSwitch" data-key="{{item.page_key}}">
+    <image class="tab-icon-mp" src="{{item.page_key == mpActiveTab ? item.iconActive : item.icon}}" mode="aspectFit"/>
+    <text class="tab-text-mp" style="color:{{item.page_key == mpActiveTab ? mpTabPrimary : '#999999'}}">{{item.text}}</text>
+  </view>
+</view></view>

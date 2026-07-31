@@ -1,0 +1,78 @@
+<wxs module="asset" src="../../utils/mp_asset.wxs"></wxs>
+<view class="page page-mine">
+<view class="page-header mp-card" style="background:#9b59b6"><view class="header-top"><text class="brand">乡土好物</text><text>💬</text></view><view class="search-row"><text>📍 个人中心</text><input placeholder="搜索订单" disabled/></view></view>
+<view class="user-center-mp mp-card">
+  <view class="uc-header-mp">
+    <view class="uc-header-row-mp">
+      <view class="uc-profile-mp" wx:if="{{loggedIn}}">
+        <button class="uc-avatar-btn-mp" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar">
+          <view class="uc-avatar-mp"><image wx:if="{{avatar}}" src="{{avatar}}" mode="aspectFill"/><text wx:else>👤</text></view>
+        </button>
+        <view class="uc-info-mp">
+          <input class="uc-name-input-mp" type="nickname" value="{{nickname}}" placeholder="点击填写昵称" bindblur="onNickBlur"/>
+          <text class="uc-tag-mp">{{levelName}}</text>
+        </view>
+      </view>
+      <view class="uc-profile-mp" wx:else bindtap="doLogin">
+        <view class="uc-avatar-mp"><text>👤</text></view>
+        <view>
+          <text class="uc-name-mp">未登录用户</text>
+          <text class="uc-tag-mp">点击登录</text>
+        </view>
+      </view>
+      <button wx:if="{{loggedIn}}" class="uc-logout-btn-mp" size="mini" bindtap="doLogout">退出</button>
+    </view>
+  </view>
+  <view class="uc-assets-mp">
+    <view class="uc-asset-mp"><text class="val">{{points}}</text><text class="lbl">积分</text></view>
+    <view class="uc-asset-mp"><text class="val">{{balance}}</text><text class="lbl">余额</text></view>
+    <view class="uc-asset-mp"><text class="val">{{couponCount}}</text><text class="lbl">优惠券</text></view>
+    <view class="uc-asset-mp"><text class="val">{{deposit}}</text><text class="lbl">押金</text></view>
+  </view>
+</view>
+<view class="uc-vip-mp mp-card">
+  <view><text class="uc-vip-title-mp">VIP至尊会员卡</text><text class="uc-vip-sub-mp">开通立享价格特权</text></view>
+  <button size="mini" class="uc-vip-btn-mp" bindtap="openVip">立即开通</button>
+</view>
+<view class="uc-benefits-mp mp-card">
+  <text class="uc-benefits-title-mp">会员权益 · 9项权益</text>
+  <view class="uc-benefit-icons-mp">
+    <view class="uc-benefit-item-mp" wx:for="{{benefits}}" wx:key="*this"><text class="uc-benefit-ico-mp">👑</text><text>{{item}}</text></view>
+  </view>
+</view>
+<view class="uc-orders-mp mp-card">
+  <view class="uc-orders-head-mp"><text>我的订单 · 订单速查</text><text class="more" bindtap="goOrders">全部 ›</text></view>
+  <view class="uc-order-icons-mp">
+    <view class="uc-order-ico-mp" bindtap="goOrders" data-status="pending_pay"><text>💳</text><text>待付款</text></view>
+    <view class="uc-order-ico-mp" bindtap="goOrders" data-status="pending_ship"><text>📦</text><text>待发货</text></view>
+    <view class="uc-order-ico-mp" bindtap="goOrders" data-status="shipping"><text>🚚</text><text>已发货</text></view>
+    <view class="uc-order-ico-mp" bindtap="goOrders" data-status="completed"><text>✅</text><text>已完成</text></view>
+  </view>
+</view>
+<view class="grid-nav mp-card" style="grid-template-columns:repeat(4,1fr)">
+  <view class="grid-item" wx:for="{{gridNav_agriculture_v06_mine_03.items}}" wx:key="text" bindtap="onNavTap" data-url="{{item.navUrl}}">
+    <image wx:if="{{item.iconSrc || item.icon}}" class="grid-icon" src="{{item.iconSrc || item.icon}}" mode="aspectFill"/>
+    <text class="grid-text">{{item.text}}</text>
+  </view>
+</view>
+<view class="grid-nav mp-card" style="grid-template-columns:repeat(4,1fr)">
+  <view class="grid-item" wx:for="{{gridNav_agriculture_v06_mine_04.items}}" wx:key="text" bindtap="onNavTap" data-url="{{item.navUrl}}">
+    <image wx:if="{{item.iconSrc || item.icon}}" class="grid-icon" src="{{item.iconSrc || item.icon}}" mode="aspectFill"/>
+    <text class="grid-text">{{item.text}}</text>
+  </view>
+</view>
+<view class="uc-community-mp mp-card"><text class="uc-comm-title">会员社区 · 大家都在买</text><text class="uc-comm-sub">发现好物、分享心得</text></view>
+<view class="promo-pair mp-card">
+  <view class="promo-card" wx:for="{{promoPair_agriculture_v06_mine_06.items}}" wx:key="title" bindtap="onNavTap" data-url="{{item.navUrl}}" style="background:{{item.bgColor}}">
+    <image wx:if="{{item.imageSrc || item.image}}" class="promo-img" src="{{item.imageSrc || item.image}}" mode="aspectFill"/>
+    <text class="promo-title">{{item.title}}</text>
+  </view>
+</view>
+</view>
+<view class="app-modal-mask" wx:if="{{appModalShow}}" catchtouchmove="true">
+  <view class="app-modal-box" catchtap="noop">
+    <text class="app-modal-title">{{appModalTitle}}</text>
+    <text class="app-modal-content">{{appModalContent}}</text>
+    <button class="app-modal-btn" bindtap="closeAppModal">确定</button>
+  </view>
+</view>
