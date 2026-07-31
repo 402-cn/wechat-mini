@@ -1,0 +1,1 @@
+INSERT INTO product_scroll_widgets (instance_id,page_key,label,title,item_count,product_ids) VALUES ('jewelry_v06_home_04','home','首页 - 横滑商品','精品珠宝',6,'["1","2","3","4","5","6"]') ON DUPLICATE KEY UPDATE label=VALUES(label),title=VALUES(title),item_count=VALUES(item_count),product_ids=IF(product_ids IS NULL OR product_ids='' OR product_ids='[]',VALUES(product_ids),product_ids);

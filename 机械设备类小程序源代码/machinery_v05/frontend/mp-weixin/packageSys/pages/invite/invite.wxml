@@ -1,0 +1,20 @@
+<view class="mp-shell has-tab"><view class="page">
+  <view wx:if="{{!loggedIn}}" class="empty"><text>请先登录</text><button bindtap="doLogin">微信登录</button></view>
+  <block wx:else>
+  <view class="code-box"><text>我的邀请码</text><text class="code">{{code}}</text></view>
+  <view class="stats"><text>已邀请 {{count}} 人</text><text>累计 {{points}} 积分</text></view>
+  <button bindtap="copy">复制邀请码</button>
+  </block>
+</view>
+<view class="app-modal-mask" wx:if="{{appModalShow}}" catchtouchmove="true">
+  <view class="app-modal-box" catchtap="noop">
+    <text class="app-modal-title">{{appModalTitle}}</text>
+    <text class="app-modal-content">{{appModalContent}}</text>
+    <button class="app-modal-btn" bindtap="closeAppModal">确定</button>
+  </view>
+</view><view class="app-tabbar-mp" wx:if="{{showMpTabBar}}">
+  <view wx:for="{{mpTabItems}}" wx:key="page_key" class="tab-item-mp" catchtap="onMpTabSwitch" data-key="{{item.page_key}}">
+    <image class="tab-icon-mp" src="{{item.page_key == mpActiveTab ? item.iconActive : item.icon}}" mode="aspectFit"/>
+    <text class="tab-text-mp" style="color:{{item.page_key == mpActiveTab ? mpTabPrimary : '#999999'}}">{{item.text}}</text>
+  </view>
+</view></view>

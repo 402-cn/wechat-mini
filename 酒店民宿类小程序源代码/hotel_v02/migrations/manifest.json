@@ -1,0 +1,40 @@
+{
+  "version": "20260731142046",
+  "siteName": "酒店民宿 · 简约精选",
+  "tables": [
+    {
+      "name": "contact_hotel",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "formId": "contact_hotel",
+      "formName": "在线留言",
+      "tableName": "contact_hotel",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言内容",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "version": "20260731142945",
+  "siteName": "物流运输 · 营销爆款",
+  "tables": [
+    {
+      "name": "contact_logistics",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "formId": "contact_logistics",
+      "formName": "在线留言",
+      "tableName": "contact_logistics",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言内容",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}

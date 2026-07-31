@@ -1,0 +1,52 @@
+<wxs module="asset" src="../../utils/mp_asset.wxs"></wxs>
+<view class="page">
+<view class="title-bar mp-card cart-title-bar"><text class="title">购物车</text><text class="sub">{{cartSubtitle}}</text></view>
+<view class="cart-head-block">
+  <view wx:if="{{!cartLoggedIn}}" class="cart-empty"><text>请先登录</text><button size="mini" bindtap="doCartLogin">微信登录</button></view>
+  <view wx:elif="{{!cartList.length}}" class="cart-empty">购物车是空的</view>
+  <view wx:else class="cart-list">
+    <view class="cart-item" wx:for="{{cartList}}" wx:key="id">
+      <checkbox checked="{{item.selected===1}}" data-id="{{item.id}}" bindtap="toggleCartItem"/>
+      <image class="cart-thumb" src="{{item.image}}" mode="aspectFill"/>
+      <view class="cart-info">
+        <text class="cart-name">{{item.name}}</text>
+        <text class="cart-price">¥{{item.price}}</text>
+        <view class="cart-qty">
+          <button size="mini" data-id="{{item.id}}" data-qty="{{item.quantity-1}}" bindtap="changeCartQty">-</button>
+          <text>{{item.quantity}}</text>
+          <button size="mini" data-id="{{item.id}}" data-qty="{{item.quantity+1}}" bindtap="changeCartQty">+</button>
+          <text class="cart-del" data-id="{{item.id}}" bindtap="removeCartItem">删除</text>
+        </view>
+      </view>
+    </view>
+    <view class="cart-foot">
+      <text>合计 ¥{{cartTotal}}</text>
+      <button type="primary" size="mini" bindtap="goCartCheckout">去结算</button>
+    </view>
+  </view>
+</view>
+<view class="notice-bar mp-card" style="color:{{(notice_fashion_v06_cart_02.textColor||'#333333')}};background:{{(notice_fashion_v06_cart_02.bgColor||'#ffffff')}};font-size:{{(notice_fashion_v06_cart_02.fontSize||28)}}rpx">
+  <text wx:if="{{notice_fashion_v06_cart_02.showIcon !== false}}" class="notice-icon">📢</text>
+  <text wx:if="{{notice_fashion_v06_cart_02.prefixTitle}}" class="notice-prefix">{{notice_fashion_v06_cart_02.prefixTitle}}</text>
+  <view class="notice-viewport">
+    <view class="notice-track {{notice_fashion_v06_cart_02.trackClass || 'to-left'}}" style="animation-duration:{{(notice_fashion_v06_cart_02.duration||'4.40s')}}">
+      <text class="notice-text">{{notice_fashion_v06_cart_02.content || '加载中...'}}</text>
+      <text class="notice-text">{{notice_fashion_v06_cart_02.content || '加载中...'}}</text>
+    </view>
+  </view>
+</view>
+<view class="product-box mp-card list"><view class="product-section-head"><text class="product-section-title">商品列表</text><navigator url="/packageSys/pages/product-list/product-list?title=%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8&component_id=fashion_v06_cart_03" class="product-section-more" hover-class="none">更多</navigator></view><view class="product-list layout-list" >
+  <view class="product-card" wx:for="{{products_fashion_v06_cart_03}}" wx:for-item="item" wx:for-index="idx" wx:key="idx" bindtap="goProduct" data-id="{{item.id}}">
+    <image wx:if="{{item.imageSrc}}" class="product-img" src="{{item.imageSrc}}" mode="aspectFill" lazy-load="{{false}}"/>
+    <view class="product-list-body"><text class="product-name">{{item.name}}</text><view class="product-list-foot"><text class="product-price">¥{{item.price}}</text><button class="product-cart-btn" catchtap="addCartFromList" data-id="{{item.id}}" style="background:#9b59b6">去结算</button><button class="product-cart-btn product-buy-btn" catchtap="buyNowFromList" data-id="{{item.id}}" style="background:#e74c3c">立即购买</button></view></view>
+  </view>
+  <view wx:if="{{products_fashion_v06_cart_03.length == 0}}" class="article-empty">暂无商品</view>
+</view></view>
+</view>
+<view class="app-modal-mask" wx:if="{{appModalShow}}" catchtouchmove="true">
+  <view class="app-modal-box" catchtap="noop">
+    <text class="app-modal-title">{{appModalTitle}}</text>
+    <text class="app-modal-content">{{appModalContent}}</text>
+    <button class="app-modal-btn" bindtap="closeAppModal">确定</button>
+  </view>
+</view>

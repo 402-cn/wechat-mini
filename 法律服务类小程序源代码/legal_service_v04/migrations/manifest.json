@@ -1,0 +1,72 @@
+{
+  "version": "20260731142708",
+  "siteName": "法律服务 · 服务展示",
+  "tables": [
+    {
+      "name": "legal_service_v04_home_contact",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    },
+    {
+      "name": "contact_legal_service",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "formId": "legal_service_v04_home_contact",
+      "formName": "在线留言",
+      "tableName": "legal_service_v04_home_contact",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "formId": "contact_legal_service",
+      "formName": "在线留言",
+      "tableName": "contact_legal_service",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言内容",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "version": "20260731140445",
+  "siteName": "服装鞋包 · 极简列表",
+  "tables": [
+    {
+      "name": "contact_fashion",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "formId": "contact_fashion",
+      "formName": "在线留言",
+      "tableName": "contact_fashion",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言内容",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}

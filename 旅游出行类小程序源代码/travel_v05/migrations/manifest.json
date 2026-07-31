@@ -1,0 +1,40 @@
+{
+  "version": "20260731150621",
+  "siteName": "旅游出行 · 极简列表",
+  "tables": [
+    {
+      "name": "contact_travel",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "formId": "contact_travel",
+      "formName": "在线留言",
+      "tableName": "contact_travel",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言内容",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}

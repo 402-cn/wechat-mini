@@ -1,0 +1,20 @@
+<view class="mp-shell has-tab"><view class="page">
+  <view class="tabs"><button class="{{tab==='available'?'on':''}}" bindtap="switchTab" data-tab="available">可领取</button><button class="{{tab==='mine'?'on':''}}" bindtap="switchTab" data-tab="mine">我的券</button></view>
+  <view class="coupon" wx:for="{{list}}" wx:key="id">
+    <view><text class="val">¥{{item.value}}</text><text class="name">{{item.name}}</text></view>
+    <button wx:if="{{tab==='available'}}" size="mini" data-id="{{item.id}}" bindtap="receive">领取</button>
+  </view>
+  <view wx:if="{{!list.length}}" class="empty">暂无优惠券</view>
+</view>
+<view class="app-modal-mask" wx:if="{{appModalShow}}" catchtouchmove="true">
+  <view class="app-modal-box" catchtap="noop">
+    <text class="app-modal-title">{{appModalTitle}}</text>
+    <text class="app-modal-content">{{appModalContent}}</text>
+    <button class="app-modal-btn" bindtap="closeAppModal">确定</button>
+  </view>
+</view><view class="app-tabbar-mp" wx:if="{{showMpTabBar}}">
+  <view wx:for="{{mpTabItems}}" wx:key="page_key" class="tab-item-mp" catchtap="onMpTabSwitch" data-key="{{item.page_key}}">
+    <image class="tab-icon-mp" src="{{item.page_key == mpActiveTab ? item.iconActive : item.icon}}" mode="aspectFit"/>
+    <text class="tab-text-mp" style="color:{{item.page_key == mpActiveTab ? mpTabPrimary : '#999999'}}">{{item.text}}</text>
+  </view>
+</view></view>

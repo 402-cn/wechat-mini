@@ -1,0 +1,78 @@
+<wxs module="asset" src="../../utils/mp_asset.wxs"></wxs>
+<view class="page page-flush-top">
+<view class="page-header mp-card" style="background:#37474f"><view class="header-top"><text class="brand">法务通</text><text>💬</text></view><view class="search-row"><text>📍 当前定位</text><input placeholder="搜索法律服务" disabled/></view></view>
+<view class="grid-nav mp-card" style="grid-template-columns:repeat(4,1fr)">
+  <view class="grid-item" wx:for="{{gridNav_legal_service_v01_home_02.items}}" wx:key="text" bindtap="onNavTap" data-url="{{item.navUrl}}">
+    <image wx:if="{{item.iconSrc || item.icon}}" class="grid-icon" src="{{item.iconSrc || item.icon}}" mode="aspectFill"/>
+    <text class="grid-text">{{item.text}}</text>
+  </view>
+</view>
+<view class="swiper-wrap mp-card">
+  <swiper wx:if="{{swiper_legal_service_v01_home_03.items && swiper_legal_service_v01_home_03.items.length}}" style="height:{{(swiper_legal_service_v01_home_03.height||320)}}rpx" autoplay="{{swiper_legal_service_v01_home_03.autoplay !== false}}" interval="{{(swiper_legal_service_v01_home_03.interval||3000)}}" indicator-dots="true" circular="true">
+    <swiper-item wx:for="{{swiper_legal_service_v01_home_03.items}}" wx:for-item="slide" wx:key="index">
+      <image class="swiper-img" src="{{slide.imageSrc}}" mode="aspectFill" lazy-load="{{false}}"/>
+    </swiper-item>
+  </swiper>
+  <view wx:else class="article-empty">加载中...</view>
+</view>
+<view class="notice-bar mp-card" style="color:{{(notice_legal_service_v01_home_04.textColor||'#333333')}};background:{{(notice_legal_service_v01_home_04.bgColor||'#ffffff')}};font-size:{{(notice_legal_service_v01_home_04.fontSize||28)}}rpx">
+  <text wx:if="{{notice_legal_service_v01_home_04.showIcon !== false}}" class="notice-icon">📢</text>
+  <text wx:if="{{notice_legal_service_v01_home_04.prefixTitle}}" class="notice-prefix">{{notice_legal_service_v01_home_04.prefixTitle}}</text>
+  <view class="notice-viewport">
+    <view class="notice-track {{notice_legal_service_v01_home_04.trackClass || 'to-left'}}" style="animation-duration:{{(notice_legal_service_v01_home_04.duration||'4.40s')}}">
+      <text class="notice-text">{{notice_legal_service_v01_home_04.content || '加载中...'}}</text>
+      <text class="notice-text">{{notice_legal_service_v01_home_04.content || '加载中...'}}</text>
+    </view>
+  </view>
+</view>
+<view class="grid-nav mp-card" style="grid-template-columns:repeat(3,1fr)">
+  <view class="grid-item" wx:for="{{gridNav_legal_service_v01_home_05.items}}" wx:key="text" bindtap="onNavTap" data-url="{{item.navUrl}}">
+    <image wx:if="{{item.iconSrc || item.icon}}" class="grid-icon" src="{{item.iconSrc || item.icon}}" mode="aspectFill"/>
+    <text class="grid-text">{{item.text}}</text>
+  </view>
+</view>
+<view class="grid-nav mp-card" style="grid-template-columns:repeat(5,1fr)">
+  <view class="grid-item" wx:for="{{gridNav_legal_service_v01_home_06.items}}" wx:key="text" bindtap="onNavTap" data-url="{{item.navUrl}}">
+    <image wx:if="{{item.iconSrc || item.icon}}" class="grid-icon" src="{{item.iconSrc || item.icon}}" mode="aspectFill"/>
+    <text class="grid-text">{{item.text}}</text>
+  </view>
+</view>
+<view class="promo-pair mp-card">
+  <view class="promo-card" wx:for="{{promoPair_legal_service_v01_home_07.items}}" wx:key="title" bindtap="onNavTap" data-url="{{item.navUrl}}" style="background:{{item.bgColor}}">
+    <image wx:if="{{item.imageSrc || item.image}}" class="promo-img" src="{{item.imageSrc || item.image}}" mode="aspectFill"/>
+    <text class="promo-title">{{item.title}}</text>
+  </view>
+</view>
+<view class="promo-pair mp-card">
+  <view class="promo-card" wx:for="{{promoPair_legal_service_v01_home_08.items}}" wx:key="title" bindtap="onNavTap" data-url="{{item.navUrl}}" style="background:{{item.bgColor}}">
+    <image wx:if="{{item.imageSrc || item.image}}" class="promo-img" src="{{item.imageSrc || item.image}}" mode="aspectFill"/>
+    <text class="promo-title">{{item.title}}</text>
+  </view>
+</view>
+<view class="promo-scroll mp-card"><view class="scroll-head"><text class="scroll-title">限时秒杀</text><text class="countdown">02:15:36</text></view><scroll-view scroll-x class="scroll-track"><view class="scroll-card"><image class="scroll-img" src="{{asset.url('/uploads/stock/legal_service_10.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">法务通精选款A</text><text class="product-price">¥39.00</text></view><view class="scroll-card"><image class="scroll-img" src="{{asset.url('/uploads/stock/legal_service_11.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">法务通精选款B</text><text class="product-price">¥88.00</text></view><view class="scroll-card"><image class="scroll-img" src="{{asset.url('/uploads/stock/legal_service_12.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">法务通精选款C</text><text class="product-price">¥137.00</text></view><view class="scroll-card"><image class="scroll-img" src="{{asset.url('/uploads/stock/legal_service_13.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">法务通精选款D</text><text class="product-price">¥186.00</text></view><view class="scroll-card"><image class="scroll-img" src="{{asset.url('/uploads/stock/legal_service_14.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">法务通精选款E</text><text class="product-price">¥235.00</text></view><view class="scroll-card"><image class="scroll-img" src="{{asset.url('/uploads/stock/legal_service_15.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">法务通精选款F</text><text class="product-price">¥284.00</text></view></scroll-view></view>
+<view class="title-bar mp-card"><text class="title">热门服务</text><text class="sub">精选推荐</text></view>
+<view class="product-box mp-card list"><view class="product-section-head"><text class="product-section-title">商品列表</text><navigator url="/packageSys/pages/product-list/product-list?title=%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8&component_id=legal_service_v01_home_11" class="product-section-more" hover-class="none">更多</navigator></view><view class="product-list layout-list" >
+  <view class="product-card" wx:for="{{products_legal_service_v01_home_11}}" wx:for-item="item" wx:for-index="idx" wx:key="idx" bindtap="goProduct" data-id="{{item.id}}">
+    <image wx:if="{{item.imageSrc}}" class="product-img" src="{{item.imageSrc}}" mode="aspectFill" lazy-load="{{false}}"/>
+    <view class="product-list-body"><text class="product-name">{{item.name}}</text><view class="product-list-foot"><text class="product-price">¥{{item.price}}</text><button class="product-cart-btn" catchtap="addCartFromList" data-id="{{item.id}}" style="background:#e74c3c">加入购物车</button><button class="product-cart-btn product-buy-btn" catchtap="buyNowFromList" data-id="{{item.id}}" style="background:#e74c3c">立即购买</button></view></view>
+  </view>
+  <view wx:if="{{products_legal_service_v01_home_11.length == 0}}" class="article-empty">暂无商品</view>
+</view></view>
+<view class="promo-banner mp-card"><view class="banner-row" style="background:#e8f5e9"><image class="banner-img" src="{{asset.url('/uploads/stock/legal_service_48.jpg', siteRoot)}}" mode="aspectFill"/><view class="banner-text"><text class="banner-title">法治护航</text><text class="banner-sub">专业法律服务</text></view></view><view class="banner-grid" style="grid-template-columns:repeat(2,1fr)"><view class="product-card" bindtap="goProduct" data-id="11"><image class="product-img" src="{{asset.url('/uploads/stock/legal_service_20.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">热销单品5</text><text class="product-price">¥235.00</text><view class="product-add-cart" catchtap="addCartFromList" data-id="11">+</view></view><view class="product-card" bindtap="goProduct" data-id="12"><image class="product-img" src="{{asset.url('/uploads/stock/legal_service_21.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">热销单品6</text><text class="product-price">¥284.00</text><view class="product-add-cart" catchtap="addCartFromList" data-id="12">+</view></view><view class="product-card" bindtap="goProduct" data-id="13"><image class="product-img" src="{{asset.url('/uploads/stock/legal_service_22.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">新品推荐1</text><text class="product-price">¥39.00</text><view class="product-add-cart" catchtap="addCartFromList" data-id="13">+</view></view><view class="product-card" bindtap="goProduct" data-id="14"><image class="product-img" src="{{asset.url('/uploads/stock/legal_service_23.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">新品推荐2</text><text class="product-price">¥88.00</text><view class="product-add-cart" catchtap="addCartFromList" data-id="14">+</view></view></view></view>
+<view class="product-box mp-card"><view class="product-section-head"><text class="product-section-title">商品列表</text><navigator url="/packageSys/pages/product-list/product-list?title=%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8&component_id=legal_service_v01_home_13" class="product-section-more" hover-class="none">更多</navigator></view><view class="product-grid" style="grid-template-columns:repeat(2,1fr)">
+  <view class="product-card" wx:for="{{products_legal_service_v01_home_13}}" wx:for-item="item" wx:for-index="idx" wx:key="idx" bindtap="goProduct" data-id="{{item.id}}">
+    <image wx:if="{{item.imageSrc}}" class="product-img" src="{{item.imageSrc}}" mode="aspectFill" lazy-load="{{false}}"/>
+    <text class="product-name">{{item.name}}</text>
+    <text class="product-price">¥{{item.price}}</text>
+    <view class="product-add-cart" catchtap="addCartFromList" data-id="{{item.id}}" style="background:#37474f">+</view><button class="product-cart-btn product-buy-btn" catchtap="buyNowFromList" data-id="{{item.id}}" style="background:#e74c3c">立即购买</button>
+  </view>
+  <view wx:if="{{products_legal_service_v01_home_13.length == 0}}" class="article-empty">暂无商品</view>
+</view></view>
+</view>
+<view class="app-modal-mask" wx:if="{{appModalShow}}" catchtouchmove="true">
+  <view class="app-modal-box" catchtap="noop">
+    <text class="app-modal-title">{{appModalTitle}}</text>
+    <text class="app-modal-content">{{appModalContent}}</text>
+    <button class="app-modal-btn" bindtap="closeAppModal">确定</button>
+  </view>
+</view>

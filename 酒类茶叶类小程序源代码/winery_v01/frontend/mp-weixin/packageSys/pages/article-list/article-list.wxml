@@ -1,0 +1,26 @@
+<view class="mp-shell has-tab"><view class="sub-page-nav">
+  <view class="sub-back" bindtap="goBack"><text>‹ 返回</text></view>
+  <text class="sub-title">文章列表</text>
+</view><view class="article-list-page article-box layout-image-text" id="article-list-page"><scroll-view class="list-cat-bar" scroll-x enable-flex>
+    <view class="cat-chip {{articleCategoryId === 0 ? 'active' : ''}}" bindtap="pickArticleCategory" data-id="0">全部</view>
+    <view wx:for="{{articleCategories}}" wx:key="id" class="cat-chip {{articleCategoryId === item.id ? 'active' : ''}}" bindtap="pickArticleCategory" data-id="{{item.id}}">{{item.name}}</view>
+  </scroll-view><view class="article-list"><view class="article-item" wx:for="{{articleListItems}}" wx:key="id" bindtap="goArticle" data-id="{{item.id}}">
+      <image wx:if="{{item.coverSrc}}" class="article-cover" src="{{item.coverSrc}}" mode="aspectFill" lazy-load="{{false}}"/>
+      <view class="article-body">
+        <text class="article-title">{{item.title}}</text>
+        <text class="article-summary">{{item.summary}}</text>
+      </view>
+    </view>
+    <view wx:if="{{!articleListItems.length && !articleListLoading}}" class="article-empty">暂无文章</view></view></view>
+<view class="app-modal-mask" wx:if="{{appModalShow}}" catchtouchmove="true">
+  <view class="app-modal-box" catchtap="noop">
+    <text class="app-modal-title">{{appModalTitle}}</text>
+    <text class="app-modal-content">{{appModalContent}}</text>
+    <button class="app-modal-btn" bindtap="closeAppModal">确定</button>
+  </view>
+</view><view class="app-tabbar-mp" wx:if="{{showMpTabBar}}">
+  <view wx:for="{{mpTabItems}}" wx:key="page_key" class="tab-item-mp" catchtap="onMpTabSwitch" data-key="{{item.page_key}}">
+    <image class="tab-icon-mp" src="{{item.page_key == mpActiveTab ? item.iconActive : item.icon}}" mode="aspectFit"/>
+    <text class="tab-text-mp" style="color:{{item.page_key == mpActiveTab ? mpTabPrimary : '#999999'}}">{{item.text}}</text>
+  </view>
+</view></view>

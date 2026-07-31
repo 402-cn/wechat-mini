@@ -1,0 +1,72 @@
+{
+  "version": "20260731143341",
+  "siteName": "机械设备 · 企业官网",
+  "tables": [
+    {
+      "name": "machinery_v07_home_contact",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    },
+    {
+      "name": "contact_machinery",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "formId": "machinery_v07_home_contact",
+      "formName": "在线留言",
+      "tableName": "machinery_v07_home_contact",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "formId": "contact_machinery",
+      "formName": "在线留言",
+      "tableName": "contact_machinery",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言内容",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}

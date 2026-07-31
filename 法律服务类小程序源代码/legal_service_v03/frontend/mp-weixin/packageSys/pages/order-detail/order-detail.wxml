@@ -1,0 +1,29 @@
+<view class="mp-shell has-tab"><view class="page">
+  <view wx:if="{{!order}}" class="empty">加载中...</view>
+  <view wx:else class="detail-card">
+    <view class="head"><text>{{order.order_no}}</text><text>{{order.status_label}}</text></view>
+    <view class="row"><text>下单时间</text><text>{{order.created_at}}</text></view>
+    <view class="row"><text>商品总额</text><text>¥{{order.total_amount}}</text></view>
+    <view class="row" wx:if="{{order.discount_amount > 0}}"><text>优惠券</text><text>{{order.coupon_name||'已使用'}} -¥{{order.discount_amount}}</text></view>
+    <view class="row"><text>实付金额</text><text class="pay">¥{{order.pay_amount}}</text></view>
+    <view class="row"><text>收货人</text><text>{{order.address_name || '—'}}</text></view>
+    <view class="row"><text>手机号码</text><text>{{order.address_phone || '—'}}</text></view>
+    <view class="row"><text>收货地址</text><text>{{order.address_detail || '—'}}</text></view>
+    <view class="item-row" wx:for="{{order.items}}" wx:for-item="it" wx:key="product_name">
+      <image class="thumb" src="{{it.product_image}}" mode="aspectFill"/>
+      <view><text>{{it.product_name}}</text><text class="sub">¥{{it.price}} x {{it.quantity}}</text></view>
+    </view>
+  </view>
+</view>
+<view class="app-modal-mask" wx:if="{{appModalShow}}" catchtouchmove="true">
+  <view class="app-modal-box" catchtap="noop">
+    <text class="app-modal-title">{{appModalTitle}}</text>
+    <text class="app-modal-content">{{appModalContent}}</text>
+    <button class="app-modal-btn" bindtap="closeAppModal">确定</button>
+  </view>
+</view><view class="app-tabbar-mp" wx:if="{{showMpTabBar}}">
+  <view wx:for="{{mpTabItems}}" wx:key="page_key" class="tab-item-mp" catchtap="onMpTabSwitch" data-key="{{item.page_key}}">
+    <image class="tab-icon-mp" src="{{item.page_key == mpActiveTab ? item.iconActive : item.icon}}" mode="aspectFit"/>
+    <text class="tab-text-mp" style="color:{{item.page_key == mpActiveTab ? mpTabPrimary : '#999999'}}">{{item.text}}</text>
+  </view>
+</view></view>

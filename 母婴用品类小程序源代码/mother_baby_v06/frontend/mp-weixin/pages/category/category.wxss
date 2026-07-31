@@ -1,0 +1,13 @@
+
+.app-modal-mask {
+  position: fixed; left: 0; right: 0; top: 0; bottom: 0; z-index: 10000;
+  background: rgba(0,0,0,.55); display: flex; align-items: center; justify-content: center;
+  padding: 48rpx; box-sizing: border-box;
+}
+.app-modal-box {
+  width: 100%; max-width: 560rpx; background: #fff; border-radius: 20rpx;
+  padding: 40rpx 32rpx 32rpx; box-sizing: border-box;
+}
+.app-modal-title { display: block; font-size: 32rpx; font-weight: 600; color: #333; text-align: center; margin-bottom: 20rpx; }
+.app-modal-content { display: block; font-size: 28rpx; color: #666; line-height: 1.6; text-align: center; margin-bottom: 32rpx; word-break: break-all; }
+.app-modal-btn { width: 100%; background: var(--primary-color, #2ecc71); color: #fff; border-radius: 12rpx; font-size: 30rpx; }

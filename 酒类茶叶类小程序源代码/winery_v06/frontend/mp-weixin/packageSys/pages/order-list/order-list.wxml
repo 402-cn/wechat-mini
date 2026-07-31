@@ -1,0 +1,35 @@
+<view class="mp-shell has-tab"><view class="page">
+  <view class="order-tabs">
+    <view class="order-tab {{status===''?'active':''}}" bindtap="switchTab" data-status="">全部</view>
+    <view class="order-tab {{status==='pending_pay'?'active':''}}" bindtap="switchTab" data-status="pending_pay">待付款</view>
+    <view class="order-tab {{status==='pending_ship'?'active':''}}" bindtap="switchTab" data-status="pending_ship">待发货</view>
+    <view class="order-tab {{status==='shipping'?'active':''}}" bindtap="switchTab" data-status="shipping">已发货</view>
+    <view class="order-tab {{status==='completed'?'active':''}}" bindtap="switchTab" data-status="completed">已完成</view>
+  </view>
+  <view wx:if="{{!loggedIn}}" class="empty"><text>请先登录</text><button bindtap="doLogin">微信登录</button></view>
+  <view wx:elif="{{!list.length}}" class="empty">暂无订单</view>
+  <view class="order-card" wx:for="{{list}}" wx:key="id">
+    <view class="head" bindtap="goDetail" data-id="{{item.id}}"><text>{{item.order_no}}</text><text>{{item.status_label}}</text></view>
+    <view class="item-row" wx:for="{{item.items}}" wx:for-item="it" wx:key="product_name" bindtap="goDetail" data-id="{{item.id}}">
+      <image class="thumb" src="{{it.product_image}}" mode="aspectFill"/>
+      <text>{{it.product_name}} x{{it.quantity}}</text>
+    </view>
+    <view class="amount" bindtap="goDetail" data-id="{{item.id}}">¥{{item.pay_amount}}</view>
+    <view class="acts" wx:if="{{item.status==='pending_pay'}}">
+      <button size="mini" type="primary" data-id="{{item.id}}" catchtap="goPay">去付款</button>
+      <button size="mini" data-id="{{item.id}}" catchtap="cancelOrder">取消订单</button>
+    </view>
+  </view>
+</view>
+<view class="app-modal-mask" wx:if="{{appModalShow}}" catchtouchmove="true">
+  <view class="app-modal-box" catchtap="noop">
+    <text class="app-modal-title">{{appModalTitle}}</text>
+    <text class="app-modal-content">{{appModalContent}}</text>
+    <button class="app-modal-btn" bindtap="closeAppModal">确定</button>
+  </view>
+</view><view class="app-tabbar-mp" wx:if="{{showMpTabBar}}">
+  <view wx:for="{{mpTabItems}}" wx:key="page_key" class="tab-item-mp" catchtap="onMpTabSwitch" data-key="{{item.page_key}}">
+    <image class="tab-icon-mp" src="{{item.page_key == mpActiveTab ? item.iconActive : item.icon}}" mode="aspectFit"/>
+    <text class="tab-text-mp" style="color:{{item.page_key == mpActiveTab ? mpTabPrimary : '#999999'}}">{{item.text}}</text>
+  </view>
+</view></view>

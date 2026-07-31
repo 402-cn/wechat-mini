@@ -1,0 +1,40 @@
+{
+  "version": "20260731144453",
+  "siteName": "母婴用品 · 营销爆款",
+  "tables": [
+    {
+      "name": "contact_mother_baby",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "formId": "contact_mother_baby",
+      "formName": "在线留言",
+      "tableName": "contact_mother_baby",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言内容",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}

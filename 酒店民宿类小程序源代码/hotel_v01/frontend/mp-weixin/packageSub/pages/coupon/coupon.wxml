@@ -1,0 +1,38 @@
+<view class="mp-shell has-tab"><wxs module="asset" src="../../../utils/mp_asset.wxs"></wxs>
+<view class="page">
+<view class="title-bar mp-card"><text class="title">优惠券</text><text class="sub">领券中心</text></view>
+<view class="notice-bar mp-card" style="color:{{(notice_hotel_v01_coupon_02.textColor||'#333333')}};background:{{(notice_hotel_v01_coupon_02.bgColor||'#ffffff')}};font-size:{{(notice_hotel_v01_coupon_02.fontSize||28)}}rpx">
+  <text wx:if="{{notice_hotel_v01_coupon_02.showIcon !== false}}" class="notice-icon">📢</text>
+  <text wx:if="{{notice_hotel_v01_coupon_02.prefixTitle}}" class="notice-prefix">{{notice_hotel_v01_coupon_02.prefixTitle}}</text>
+  <view class="notice-viewport">
+    <view class="notice-track {{notice_hotel_v01_coupon_02.trackClass || 'to-left'}}" style="animation-duration:{{(notice_hotel_v01_coupon_02.duration||'4.40s')}}">
+      <text class="notice-text">{{notice_hotel_v01_coupon_02.content || '加载中...'}}</text>
+      <text class="notice-text">{{notice_hotel_v01_coupon_02.content || '加载中...'}}</text>
+    </view>
+  </view>
+</view>
+<view class="promo-pair mp-card">
+  <view class="promo-card" wx:for="{{promoPair_hotel_v01_coupon_03.items}}" wx:key="title" bindtap="onNavTap" data-url="{{item.navUrl}}" style="background:{{item.bgColor}}">
+    <image wx:if="{{item.imageSrc || item.image}}" class="promo-img" src="{{item.imageSrc || item.image}}" mode="aspectFill"/>
+    <text class="promo-title">{{item.title}}</text>
+  </view>
+</view>
+<view class="promo-pair mp-card">
+  <view class="promo-card" wx:for="{{promoPair_hotel_v01_coupon_04.items}}" wx:key="title" bindtap="onNavTap" data-url="{{item.navUrl}}" style="background:{{item.bgColor}}">
+    <image wx:if="{{item.imageSrc || item.image}}" class="promo-img" src="{{item.imageSrc || item.image}}" mode="aspectFill"/>
+    <text class="promo-title">{{item.title}}</text>
+  </view>
+</view>
+</view>
+<view class="app-modal-mask" wx:if="{{appModalShow}}" catchtouchmove="true">
+  <view class="app-modal-box" catchtap="noop">
+    <text class="app-modal-title">{{appModalTitle}}</text>
+    <text class="app-modal-content">{{appModalContent}}</text>
+    <button class="app-modal-btn" bindtap="closeAppModal">确定</button>
+  </view>
+</view><view class="app-tabbar-mp" wx:if="{{showMpTabBar}}">
+  <view wx:for="{{mpTabItems}}" wx:key="page_key" class="tab-item-mp" catchtap="onMpTabSwitch" data-key="{{item.page_key}}">
+    <image class="tab-icon-mp" src="{{item.page_key == mpActiveTab ? item.iconActive : item.icon}}" mode="aspectFit"/>
+    <text class="tab-text-mp" style="color:{{item.page_key == mpActiveTab ? mpTabPrimary : '#999999'}}">{{item.text}}</text>
+  </view>
+</view></view>

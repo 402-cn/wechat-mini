@@ -1,0 +1,40 @@
+{
+  "version": "20260731143320",
+  "siteName": "机械设备 · 视觉瀑布",
+  "tables": [
+    {
+      "name": "contact_machinery",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "formId": "contact_machinery",
+      "formName": "在线留言",
+      "tableName": "contact_machinery",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言内容",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}

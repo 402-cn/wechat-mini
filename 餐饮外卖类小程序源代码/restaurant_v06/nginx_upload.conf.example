@@ -1,0 +1,10 @@
+# 在 server { ... } 内加入（或合并到现有 wechat.conf）：
+#
+# client_max_body_size 20m;
+#
+# location ~ ^/admin/upload\.php$ {
+#     client_max_body_size 20m;
+#     include fastcgi_params;
+#     fastcgi_pass unix:/run/php-fpm/www.sock;
+#     fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+# }

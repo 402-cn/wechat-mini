@@ -1,0 +1,40 @@
+{
+  "version": "20260731142255",
+  "siteName": "珠宝饰品 · 经典商城",
+  "tables": [
+    {
+      "name": "contact_jewelry",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "formId": "contact_jewelry",
+      "formName": "在线留言",
+      "tableName": "contact_jewelry",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言内容",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}

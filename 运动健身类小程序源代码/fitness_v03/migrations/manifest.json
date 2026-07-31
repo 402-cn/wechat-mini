@@ -1,0 +1,40 @@
+{
+  "version": "20260731140635",
+  "siteName": "运动健身 · 营销爆款",
+  "tables": [
+    {
+      "name": "contact_fitness",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "formId": "contact_fitness",
+      "formName": "在线留言",
+      "tableName": "contact_fitness",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言内容",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}
