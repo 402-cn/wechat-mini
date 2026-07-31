@@ -1,0 +1,52 @@
+<wxs module="asset" src="../../utils/mp_asset.wxs"></wxs>
+<view class="page">
+<view class="search-bar mp-card" style="background:#ffffff"><input class="mb-input" placeholder="搜索新鲜果蔬"/></view>
+<view class="swiper-wrap mp-card">
+  <swiper wx:if="{{swiper_fresh_grocery_v02_home_02.items && swiper_fresh_grocery_v02_home_02.items.length}}" style="height:{{(swiper_fresh_grocery_v02_home_02.height||280)}}rpx" autoplay="{{swiper_fresh_grocery_v02_home_02.autoplay !== false}}" interval="{{(swiper_fresh_grocery_v02_home_02.interval||3000)}}" indicator-dots="true" circular="true">
+    <swiper-item wx:for="{{swiper_fresh_grocery_v02_home_02.items}}" wx:for-item="slide" wx:key="index">
+      <image class="swiper-img" src="{{slide.imageSrc}}" mode="aspectFill" lazy-load="{{false}}"/>
+    </swiper-item>
+  </swiper>
+  <view wx:else class="article-empty">加载中...</view>
+</view>
+<view class="notice-bar mp-card" style="color:{{(notice_fresh_grocery_v02_home_03.textColor||'#333333')}};background:{{(notice_fresh_grocery_v02_home_03.bgColor||'#ffffff')}};font-size:{{(notice_fresh_grocery_v02_home_03.fontSize||28)}}rpx">
+  <text wx:if="{{notice_fresh_grocery_v02_home_03.showIcon !== false}}" class="notice-icon">📢</text>
+  <text wx:if="{{notice_fresh_grocery_v02_home_03.prefixTitle}}" class="notice-prefix">{{notice_fresh_grocery_v02_home_03.prefixTitle}}</text>
+  <view class="notice-viewport">
+    <view class="notice-track {{notice_fresh_grocery_v02_home_03.trackClass || 'to-left'}}" style="animation-duration:{{(notice_fresh_grocery_v02_home_03.duration||'4.40s')}}">
+      <text class="notice-text">{{notice_fresh_grocery_v02_home_03.content || '加载中...'}}</text>
+      <text class="notice-text">{{notice_fresh_grocery_v02_home_03.content || '加载中...'}}</text>
+    </view>
+  </view>
+</view>
+<view class="grid-nav mp-card" style="grid-template-columns:repeat(5,1fr)">
+  <view class="grid-item" wx:for="{{gridNav_fresh_grocery_v02_home_04.items}}" wx:key="text" bindtap="onNavTap" data-url="{{item.navUrl}}">
+    <image wx:if="{{item.iconSrc || item.icon}}" class="grid-icon" src="{{item.iconSrc || item.icon}}" mode="aspectFill"/>
+    <text class="grid-text">{{item.text}}</text>
+  </view>
+</view>
+<view class="title-bar mp-card"><text class="title">每日鲜选</text><text class="sub">生鲜果蔬</text></view>
+<view class="product-box mp-card"><view class="product-section-head"><text class="product-section-title">商品列表</text><navigator url="/packageSys/pages/product-list/product-list?title=%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8&component_id=fresh_grocery_v02_home_06" class="product-section-more" hover-class="none">更多</navigator></view><view class="product-grid" style="grid-template-columns:repeat(2,1fr)">
+  <view class="product-card" wx:for="{{products_fresh_grocery_v02_home_06}}" wx:for-item="item" wx:for-index="idx" wx:key="idx" bindtap="goProduct" data-id="{{item.id}}">
+    <image wx:if="{{item.imageSrc}}" class="product-img" src="{{item.imageSrc}}" mode="aspectFill" lazy-load="{{false}}"/>
+    <text class="product-name">{{item.name}}</text>
+    <text class="product-price">¥{{item.price}}</text>
+    <view class="product-add-cart" catchtap="addCartFromList" data-id="{{item.id}}" style="background:#3498db">+</view><button class="product-cart-btn product-buy-btn" catchtap="buyNowFromList" data-id="{{item.id}}" style="background:#e74c3c">立即购买</button>
+  </view>
+  <view wx:if="{{products_fresh_grocery_v02_home_06.length == 0}}" class="article-empty">暂无商品</view>
+</view></view>
+<view class="product-box mp-card list"><view class="product-section-head"><text class="product-section-title">商品列表</text><navigator url="/packageSys/pages/product-list/product-list?title=%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8&component_id=fresh_grocery_v02_home_07" class="product-section-more" hover-class="none">更多</navigator></view><view class="product-list layout-list" >
+  <view class="product-card" wx:for="{{products_fresh_grocery_v02_home_07}}" wx:for-item="item" wx:for-index="idx" wx:key="idx" bindtap="goProduct" data-id="{{item.id}}">
+    <image wx:if="{{item.imageSrc}}" class="product-img" src="{{item.imageSrc}}" mode="aspectFill" lazy-load="{{false}}"/>
+    <view class="product-list-body"><text class="product-name">{{item.name}}</text><view class="product-list-foot"><text class="product-price">¥{{item.price}}</text><button class="product-cart-btn" catchtap="addCartFromList" data-id="{{item.id}}" style="background:#3498db">加入购物车</button><button class="product-cart-btn product-buy-btn" catchtap="buyNowFromList" data-id="{{item.id}}" style="background:#e74c3c">立即购买</button></view></view>
+  </view>
+  <view wx:if="{{products_fresh_grocery_v02_home_07.length == 0}}" class="article-empty">暂无商品</view>
+</view></view>
+</view>
+<view class="app-modal-mask" wx:if="{{appModalShow}}" catchtouchmove="true">
+  <view class="app-modal-box" catchtap="noop">
+    <text class="app-modal-title">{{appModalTitle}}</text>
+    <text class="app-modal-content">{{appModalContent}}</text>
+    <button class="app-modal-btn" bindtap="closeAppModal">确定</button>
+  </view>
+</view>

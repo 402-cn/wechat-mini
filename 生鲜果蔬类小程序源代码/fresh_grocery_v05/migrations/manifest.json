@@ -1,0 +1,40 @@
+{
+  "version": "20260731141258",
+  "siteName": "生鲜果蔬 · 极简列表",
+  "tables": [
+    {
+      "name": "contact_fresh_grocery",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "formId": "contact_fresh_grocery",
+      "formName": "在线留言",
+      "tableName": "contact_fresh_grocery",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言内容",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}
