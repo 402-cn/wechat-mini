@@ -1,0 +1,75 @@
+{
+  "lazyCodeLoading": "requiredComponents",
+  "pages": [
+    "pages/home/home",
+    "pages/category/category",
+    "pages/cart/cart",
+    "pages/mine/mine"
+  ],
+  "subPackages": [
+    {
+      "pages": [
+        "pages/coupon/coupon",
+        "pages/member/member",
+        "pages/article/article",
+        "pages/about/about",
+        "pages/contact/contact",
+        "pages/order/order"
+      ],
+      "root": "packageSub"
+    },
+    {
+      "pages": [
+        "pages/product-detail/product-detail",
+        "pages/product-list/product-list",
+        "pages/article-detail/article-detail",
+        "pages/article-list/article-list",
+        "pages/checkout/checkout",
+        "pages/order-list/order-list",
+        "pages/order-detail/order-detail",
+        "pages/address-list/address-list",
+        "pages/settings/settings",
+        "pages/invite/invite",
+        "pages/coupon-list/coupon-list",
+        "pages/member-center/member-center"
+      ],
+      "root": "packageSys"
+    }
+  ],
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "color": "#999999",
+    "list": [
+      {
+        "iconPath": "/assets/tab/home.png",
+        "pagePath": "pages/home/home",
+        "selectedIconPath": "/assets/tab/home_active.png",
+        "text": "首页"
+      },
+      {
+        "iconPath": "/assets/tab/category.png",
+        "pagePath": "pages/category/category",
+        "selectedIconPath": "/assets/tab/category_active.png",
+        "text": "分类"
+      },
+      {
+        "iconPath": "/assets/tab/cart.png",
+        "pagePath": "pages/cart/cart",
+        "selectedIconPath": "/assets/tab/cart_active.png",
+        "text": "购物车"
+      },
+      {
+        "iconPath": "/assets/tab/mine.png",
+        "pagePath": "pages/mine/mine",
+        "selectedIconPath": "/assets/tab/mine_active.png",
+        "text": "我的"
+      }
+    ],
+    "selectedColor": "#9b59b6"
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTitleText": "医疗健康 · 视觉瀑布"
+  }
+}

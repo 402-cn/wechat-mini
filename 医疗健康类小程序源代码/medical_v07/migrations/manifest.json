@@ -1,0 +1,72 @@
+{
+  "version": "20260731143946",
+  "siteName": "医疗健康 · 企业官网",
+  "tables": [
+    {
+      "name": "medical_v07_home_contact",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    },
+    {
+      "name": "contact_medical",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "formId": "medical_v07_home_contact",
+      "formName": "在线留言",
+      "tableName": "medical_v07_home_contact",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "formId": "contact_medical",
+      "formName": "在线留言",
+      "tableName": "contact_medical",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言内容",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}

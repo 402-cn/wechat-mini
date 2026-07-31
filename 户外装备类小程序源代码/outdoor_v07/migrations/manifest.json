@@ -1,0 +1,72 @@
+{
+  "version": "20260731144927",
+  "siteName": "户外装备 · 企业官网",
+  "tables": [
+    {
+      "name": "outdoor_v07_home_contact",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    },
+    {
+      "name": "contact_outdoor",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "formId": "outdoor_v07_home_contact",
+      "formName": "在线留言",
+      "tableName": "outdoor_v07_home_contact",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "formId": "contact_outdoor",
+      "formName": "在线留言",
+      "tableName": "contact_outdoor",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言内容",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}

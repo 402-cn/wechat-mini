@@ -1,0 +1,72 @@
+{
+  "version": "20260731143716",
+  "siteName": "文化传媒 · 企业官网",
+  "tables": [
+    {
+      "name": "media_culture_v07_home_contact",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    },
+    {
+      "name": "contact_media_culture",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "formId": "media_culture_v07_home_contact",
+      "formName": "在线留言",
+      "tableName": "media_culture_v07_home_contact",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言",
+          "type": "textarea"
+        }
+      ]
+    },
+    {
+      "formId": "contact_media_culture",
+      "formName": "在线留言",
+      "tableName": "contact_media_culture",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言内容",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}

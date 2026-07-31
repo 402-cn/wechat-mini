@@ -1,0 +1,23 @@
+<view class="mp-shell has-tab"><wxs module="asset" src="../../../utils/mp_asset.wxs"></wxs>
+<view class="page">
+<view class="title-bar mp-card"><text class="title">会员中心</text><text class="sub">尊享会员权益</text></view>
+<view class="promo-banner mp-card"><view class="banner-row" style="background:#fff8e1"><image class="banner-img" src="{{asset.url('/uploads/stock/education_49.jpg', siteRoot)}}" mode="aspectFill"/><view class="banner-text"><text class="banner-title">VIP会员</text><text class="banner-sub">开通享专属折扣</text></view></view><view class="banner-grid" style="grid-template-columns:repeat(2,1fr)"><view class="product-card" bindtap="goProduct" data-id="5"><image class="product-img" src="{{asset.url('/uploads/stock/education_14.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">拼音启蒙</text><text class="product-price">¥895.00</text><view class="product-add-cart" catchtap="addCartFromList" data-id="5">+</view></view><view class="product-card" bindtap="goProduct" data-id="6"><image class="product-img" src="{{asset.url('/uploads/stock/education_15.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">文言文</text><text class="product-price">¥1094.00</text><view class="product-add-cart" catchtap="addCartFromList" data-id="6">+</view></view><view class="product-card" bindtap="goProduct" data-id="7"><image class="product-img" src="{{asset.url('/uploads/stock/education_16.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">数学思维</text><text class="product-price">¥99.00</text><view class="product-add-cart" catchtap="addCartFromList" data-id="7">+</view></view><view class="product-card" bindtap="goProduct" data-id="8"><image class="product-img" src="{{asset.url('/uploads/stock/education_17.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">奥数提高</text><text class="product-price">¥298.00</text><view class="product-add-cart" catchtap="addCartFromList" data-id="8">+</view></view></view></view>
+<view class="grid-nav mp-card" style="grid-template-columns:repeat(3,1fr)">
+  <view class="grid-item" wx:for="{{gridNav_education_v03_member_03.items}}" wx:key="text" bindtap="onNavTap" data-url="{{item.navUrl}}">
+    <image wx:if="{{item.iconSrc || item.icon}}" class="grid-icon" src="{{item.iconSrc || item.icon}}" mode="aspectFill"/>
+    <text class="grid-text">{{item.text}}</text>
+  </view>
+</view>
+</view>
+<view class="app-modal-mask" wx:if="{{appModalShow}}" catchtouchmove="true">
+  <view class="app-modal-box" catchtap="noop">
+    <text class="app-modal-title">{{appModalTitle}}</text>
+    <text class="app-modal-content">{{appModalContent}}</text>
+    <button class="app-modal-btn" bindtap="closeAppModal">确定</button>
+  </view>
+</view><view class="app-tabbar-mp" wx:if="{{showMpTabBar}}">
+  <view wx:for="{{mpTabItems}}" wx:key="page_key" class="tab-item-mp" catchtap="onMpTabSwitch" data-key="{{item.page_key}}">
+    <image class="tab-icon-mp" src="{{item.page_key == mpActiveTab ? item.iconActive : item.icon}}" mode="aspectFit"/>
+    <text class="tab-text-mp" style="color:{{item.page_key == mpActiveTab ? mpTabPrimary : '#999999'}}">{{item.text}}</text>
+  </view>
+</view></view>

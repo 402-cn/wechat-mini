@@ -1,0 +1,15 @@
+{
+  "description": "由低代码平台生成",
+  "appid": "",
+  "projectname": "wechat-app",
+  "compileType": "miniprogram",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "minifyWXSS": true,
+    "minifyWXML": true
+  }
+}

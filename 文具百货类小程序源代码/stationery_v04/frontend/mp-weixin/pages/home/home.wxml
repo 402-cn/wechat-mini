@@ -1,0 +1,39 @@
+<wxs module="asset" src="../../utils/mp_asset.wxs"></wxs>
+<view class="page page-flush-top">
+<view class="page-header mp-card" style="background:#1abc9c"><view class="header-top"><text class="brand">文具优选</text><text>💬</text></view><view class="search-row"><text>📍 当前定位</text><input placeholder="搜索文具百货" disabled/></view></view>
+<view class="swiper-wrap mp-card">
+  <swiper wx:if="{{swiper_stationery_v04_home_02.items && swiper_stationery_v04_home_02.items.length}}" style="height:{{(swiper_stationery_v04_home_02.height||300)}}rpx" autoplay="{{swiper_stationery_v04_home_02.autoplay !== false}}" interval="{{(swiper_stationery_v04_home_02.interval||3000)}}" indicator-dots="true" circular="true">
+    <swiper-item wx:for="{{swiper_stationery_v04_home_02.items}}" wx:for-item="slide" wx:key="index">
+      <image class="swiper-img" src="{{slide.imageSrc}}" mode="aspectFill" lazy-load="{{false}}"/>
+    </swiper-item>
+  </swiper>
+  <view wx:else class="article-empty">加载中...</view>
+</view>
+<view class="feature-card-box mp-card"><view class="feature-card" style="background:#fff3e0"><view class="fc-left"><text class="fc-title">热销文具</text><text class="fc-sub">文具百货</text><text class="fc-banner">品质文具一站购</text></view></view><view class="feature-card" style="background:#e3f2fd"><view class="fc-left"><text class="fc-title">办公精选</text><text class="fc-sub">文具优选</text><text class="fc-banner">新用户专享优惠，欢迎选购文具百货好物！</text></view></view></view>
+<view class="service-card-box mp-card"><view class="sc-section-title"><text>推荐服务</text></view><view class="service-card"><text class="sc-name">文具优选</text><text class="sc-meta">4.9分 · 128评</text></view></view>
+<view class="grid-nav mp-card" style="grid-template-columns:repeat(4,1fr)">
+  <view class="grid-item" wx:for="{{gridNav_stationery_v04_home_05.items}}" wx:key="text" bindtap="onNavTap" data-url="{{item.navUrl}}">
+    <image wx:if="{{item.iconSrc || item.icon}}" class="grid-icon" src="{{item.iconSrc || item.icon}}" mode="aspectFill"/>
+    <text class="grid-text">{{item.text}}</text>
+  </view>
+</view>
+<view class="list-menu mp-card"><view class="list-menu-item"><text class="lm-icon">📋</text><text class="lm-text">服务介绍</text><text class="lm-value"></text><text class="lm-arrow">›</text></view><view class="list-menu-item"><text class="lm-icon">⭐</text><text class="lm-text">客户案例</text><text class="lm-value"></text><text class="lm-arrow">›</text></view><view class="list-menu-item"><text class="lm-icon">📞</text><text class="lm-text">联系咨询</text><text class="lm-value"></text><text class="lm-arrow">›</text></view></view>
+<view class="article-box mp-card"><view class="article-section-head"><text class="article-section-title">最新资讯</text><navigator url="/packageSys/pages/article-list/article-list?title=%E6%9C%80%E6%96%B0%E8%B5%84%E8%AE%AF&component_id=stationery_v04_home_07" class="article-section-more" hover-class="none">更多</navigator></view><view class="article-list">
+  <view class="article-item" wx:for="{{articles_stationery_v04_home_07}}" wx:for-item="item" wx:for-index="idx" wx:key="idx" bindtap="goArticle" data-id="{{item.id}}">
+    <image wx:if="{{item.coverSrc}}" class="article-cover" src="{{item.coverSrc}}" mode="aspectFill" lazy-load="{{false}}"/>
+    <view class="article-body">
+      <text class="article-title">{{item.title}}</text>
+      <text class="article-summary">{{item.summary}}</text>
+    </view>
+  </view>
+  <view wx:if="{{articles_stationery_v04_home_07.length == 0}}" class="article-empty">暂无文章</view>
+</view></view>
+<view class="form-box mp-card message-board"><text class="form-title mb-title">在线留言</text><view class="mb-field"><text class="mb-label">姓名</text><input class="mb-input" type="text" placeholder="请输入姓名"/></view><view class="mb-field"><text class="mb-label">手机号</text><input class="mb-input" type="number" placeholder="请输入手机号"/></view><view class="mb-field"><text class="mb-label">留言</text><textarea class="mb-input" placeholder="请输入留言内容" auto-height/></view><button class="mb-submit" bindtap="submitForm" data-form-id="stationery_v04_home_contact">提交</button></view>
+</view>
+<view class="app-modal-mask" wx:if="{{appModalShow}}" catchtouchmove="true">
+  <view class="app-modal-box" catchtap="noop">
+    <text class="app-modal-title">{{appModalTitle}}</text>
+    <text class="app-modal-content">{{appModalContent}}</text>
+    <button class="app-modal-btn" bindtap="closeAppModal">确定</button>
+  </view>
+</view>

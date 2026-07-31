@@ -1,0 +1,43 @@
+<wxs module="asset" src="../../utils/mp_asset.wxs"></wxs>
+<view class="page page-flush-top">
+<view class="page-header mp-card" style="background:#e74c3c"><view class="header-top"><text class="brand">数码商城</text><text>💬</text></view><view class="search-row"><text>📍 当前定位</text><input placeholder="搜索数码家电" disabled/></view></view>
+<view class="swiper-wrap mp-card">
+  <swiper wx:if="{{swiper_digital_v03_home_02.items && swiper_digital_v03_home_02.items.length}}" style="height:{{(swiper_digital_v03_home_02.height||340)}}rpx" autoplay="{{swiper_digital_v03_home_02.autoplay !== false}}" interval="{{(swiper_digital_v03_home_02.interval||3000)}}" indicator-dots="true" circular="true">
+    <swiper-item wx:for="{{swiper_digital_v03_home_02.items}}" wx:for-item="slide" wx:key="index">
+      <image class="swiper-img" src="{{slide.imageSrc}}" mode="aspectFill" lazy-load="{{false}}"/>
+    </swiper-item>
+  </swiper>
+  <view wx:else class="article-empty">加载中...</view>
+</view>
+<view class="promo-grid mp-card" style="grid-template-columns:repeat(2,1fr)"><view class="promo-grid-cell" style="background:#ffeef0"><text class="pg-badge">HOT</text><text class="pg-title">爆款直降</text><text class="pg-sub">精选</text></view><view class="promo-grid-cell" style="background:#eef5ff"><text class="pg-title">以旧换新</text><text class="pg-sub">特惠</text></view><view class="promo-grid-cell" style="background:#eefaf0"><text class="pg-title">分期免息</text><text class="pg-sub">福利</text></view><view class="promo-grid-cell" style="background:#fff8e8"><text class="pg-title">限时特惠</text><text class="pg-sub">爆款</text></view></view>
+<view class="promo-scroll mp-card"><view class="scroll-head"><text class="scroll-title">限时秒杀</text><text class="countdown">02:15:36</text></view><scroll-view scroll-x class="scroll-track"><view class="scroll-card"><image class="scroll-img" src="{{asset.url('/uploads/stock/digital_10.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">智能手机A</text><text class="product-price">¥199.00</text></view><view class="scroll-card"><image class="scroll-img" src="{{asset.url('/uploads/stock/digital_11.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">智能手机B</text><text class="product-price">¥498.00</text></view><view class="scroll-card"><image class="scroll-img" src="{{asset.url('/uploads/stock/digital_12.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">手机壳</text><text class="product-price">¥797.00</text></view><view class="scroll-card"><image class="scroll-img" src="{{asset.url('/uploads/stock/digital_13.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">钢化膜</text><text class="product-price">¥1096.00</text></view><view class="scroll-card"><image class="scroll-img" src="{{asset.url('/uploads/stock/digital_14.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">快充头</text><text class="product-price">¥1395.00</text></view><view class="scroll-card"><image class="scroll-img" src="{{asset.url('/uploads/stock/digital_15.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">数据线</text><text class="product-price">¥1694.00</text></view><view class="scroll-card"><image class="scroll-img" src="{{asset.url('/uploads/stock/digital_16.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">轻薄笔记本</text><text class="product-price">¥199.00</text></view><view class="scroll-card"><image class="scroll-img" src="{{asset.url('/uploads/stock/digital_17.jpg', siteRoot)}}" mode="aspectFill"/><text class="product-name">游戏本</text><text class="product-price">¥498.00</text></view></scroll-view></view>
+<view class="promo-pair mp-card">
+  <view class="promo-card" wx:for="{{promoPair_digital_v03_home_05.items}}" wx:key="title" bindtap="onNavTap" data-url="{{item.navUrl}}" style="background:{{item.bgColor}}">
+    <image wx:if="{{item.imageSrc || item.image}}" class="promo-img" src="{{item.imageSrc || item.image}}" mode="aspectFill"/>
+    <text class="promo-title">{{item.title}}</text>
+  </view>
+</view>
+<view class="promo-pair mp-card">
+  <view class="promo-card" wx:for="{{promoPair_digital_v03_home_06.items}}" wx:key="title" bindtap="onNavTap" data-url="{{item.navUrl}}" style="background:{{item.bgColor}}">
+    <image wx:if="{{item.imageSrc || item.image}}" class="promo-img" src="{{item.imageSrc || item.image}}" mode="aspectFill"/>
+    <text class="promo-title">{{item.title}}</text>
+  </view>
+</view>
+<view class="marketing-entry mp-card" style="background:#fff3e0"><view class="me-info"><text class="me-title">整点秒杀</text><text class="me-sub">每日限时</text></view></view>
+<view class="product-box mp-card"><view class="product-section-head"><text class="product-section-title">商品列表</text><navigator url="/packageSys/pages/product-list/product-list?title=%E5%95%86%E5%93%81%E5%88%97%E8%A1%A8&component_id=digital_v03_home_08" class="product-section-more" hover-class="none">更多</navigator></view><view class="product-grid" style="grid-template-columns:repeat(2,1fr)">
+  <view class="product-card" wx:for="{{products_digital_v03_home_08}}" wx:for-item="item" wx:for-index="idx" wx:key="idx" bindtap="goProduct" data-id="{{item.id}}">
+    <image wx:if="{{item.imageSrc}}" class="product-img" src="{{item.imageSrc}}" mode="aspectFill" lazy-load="{{false}}"/>
+    <text class="product-name">{{item.name}}</text>
+    <text class="product-price">¥{{item.price}}</text>
+    <view class="product-add-cart" catchtap="addCartFromList" data-id="{{item.id}}" style="background:#e74c3c">+</view><button class="product-cart-btn product-buy-btn" catchtap="buyNowFromList" data-id="{{item.id}}" style="background:#e74c3c">立即购买</button>
+  </view>
+  <view wx:if="{{products_digital_v03_home_08.length == 0}}" class="article-empty">暂无商品</view>
+</view></view>
+</view>
+<view class="app-modal-mask" wx:if="{{appModalShow}}" catchtouchmove="true">
+  <view class="app-modal-box" catchtap="noop">
+    <text class="app-modal-title">{{appModalTitle}}</text>
+    <text class="app-modal-content">{{appModalContent}}</text>
+    <button class="app-modal-btn" bindtap="closeAppModal">确定</button>
+  </view>
+</view>

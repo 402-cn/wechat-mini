@@ -1,0 +1,43 @@
+<view class="mp-shell has-tab"><wxs module="asset" src="../../../utils/mp_asset.wxs"></wxs>
+<view class="page">
+<view class="order-head-block">
+  <view class="order-tabs">
+    <view class="order-tab {{orderStatus===''?'active':''}}" bindtap="switchOrderTab" data-status="">全部</view>
+    <view class="order-tab {{orderStatus==='pending_pay'?'active':''}}" bindtap="switchOrderTab" data-status="pending_pay">待付款</view>
+    <view class="order-tab {{orderStatus==='pending_ship'?'active':''}}" bindtap="switchOrderTab" data-status="pending_ship">待发货</view>
+    <view class="order-tab {{orderStatus==='shipping'?'active':''}}" bindtap="switchOrderTab" data-status="shipping">已发货</view>
+    <view class="order-tab {{orderStatus==='completed'?'active':''}}" bindtap="switchOrderTab" data-status="completed">已完成</view>
+  </view>
+  <view wx:if="{{!orderLoggedIn}}" class="order-empty"><text>请先登录</text><button size="mini" bindtap="doOrderLogin">微信登录</button></view>
+  <view wx:elif="{{!orderList.length}}" class="order-empty">暂无订单</view>
+  <view wx:else class="order-list">
+    <view class="order-card" wx:for="{{orderList}}" wx:key="id">
+      <view class="order-card-head" bindtap="goOrderDetail" data-id="{{item.id}}">
+        <text>{{item.order_no}}</text><text>{{item.status_label}}</text>
+      </view>
+      <view class="order-item-row" wx:for="{{item.items}}" wx:for-item="it" wx:key="product_name" bindtap="goOrderDetail" data-id="{{item.id}}">
+        <image class="order-thumb" src="{{it.product_image}}" mode="aspectFill"/>
+        <text>{{it.product_name}} x{{it.quantity}}</text>
+      </view>
+      <view class="order-amount" bindtap="goOrderDetail" data-id="{{item.id}}">¥{{item.pay_amount}}</view>
+      <view class="order-acts" wx:if="{{item.status==='pending_pay'}}">
+        <button size="mini" type="primary" data-id="{{item.id}}" catchtap="goOrderPay">去付款</button>
+        <button size="mini" data-id="{{item.id}}" catchtap="cancelOrder">取消订单</button>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="rich-text mp-card"><rich-text nodes="<p>暂无订单记录。在安居置业下单后，订单将显示在这里。</p>"/></view>
+</view>
+<view class="app-modal-mask" wx:if="{{appModalShow}}" catchtouchmove="true">
+  <view class="app-modal-box" catchtap="noop">
+    <text class="app-modal-title">{{appModalTitle}}</text>
+    <text class="app-modal-content">{{appModalContent}}</text>
+    <button class="app-modal-btn" bindtap="closeAppModal">确定</button>
+  </view>
+</view><view class="app-tabbar-mp" wx:if="{{showMpTabBar}}">
+  <view wx:for="{{mpTabItems}}" wx:key="page_key" class="tab-item-mp" catchtap="onMpTabSwitch" data-key="{{item.page_key}}">
+    <image class="tab-icon-mp" src="{{item.page_key == mpActiveTab ? item.iconActive : item.icon}}" mode="aspectFit"/>
+    <text class="tab-text-mp" style="color:{{item.page_key == mpActiveTab ? mpTabPrimary : '#999999'}}">{{item.text}}</text>
+  </view>
+</view></view>

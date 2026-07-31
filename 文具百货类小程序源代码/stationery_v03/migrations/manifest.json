@@ -1,0 +1,40 @@
+{
+  "version": "20260731150245",
+  "siteName": "文具百货 · 营销爆款",
+  "tables": [
+    {
+      "name": "contact_stationery",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "formId": "contact_stationery",
+      "formName": "在线留言",
+      "tableName": "contact_stationery",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言内容",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}

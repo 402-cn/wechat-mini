@@ -1,0 +1,36 @@
+<view class="mp-shell has-tab"><view class="page">
+  <view wx:if="{{!loggedIn}}" class="empty"><text>请先登录</text><button bindtap="doLogin">微信登录</button></view>
+  <block wx:else>
+  <view class="addr-card" wx:for="{{list}}" wx:key="id">
+    <view class="head">
+      <view class="name-line"><text class="name">{{item.name}}</text><text class="phone">{{item.phone}}</text></view>
+      <text class="badge" wx:if="{{item.is_default}}">默认</text>
+    </view>
+    <text class="detail">{{item.detail}}</text>
+    <view class="acts">
+      <button size="mini" wx:if="{{!item.is_default}}" data-id="{{item.id}}" bindtap="setDefault">设为默认</button>
+      <button size="mini" data-id="{{item.id}}" bindtap="remove">删除</button>
+    </view>
+  </view>
+  <view class="form">
+    <text class="form-title">新增地址</text>
+    <view class="field"><text class="label">收货人</text><input placeholder="姓名" value="{{name}}" bindinput="onName"/></view>
+    <view class="field"><text class="label">手机号</text><input type="number" placeholder="11位手机号" value="{{phone}}" bindinput="onPhone"/></view>
+    <view class="field"><text class="label">详细地址</text><textarea placeholder="省市区 + 街道门牌" value="{{detail}}" bindinput="onDetail"/></view>
+    <label class="check-row"><checkbox checked="{{isDefault}}" bindtap="toggleDefault"/> 设为默认地址</label>
+    <button class="save-btn" type="primary" bindtap="save">保存地址</button>
+  </view>
+  </block>
+</view>
+<view class="app-modal-mask" wx:if="{{appModalShow}}" catchtouchmove="true">
+  <view class="app-modal-box" catchtap="noop">
+    <text class="app-modal-title">{{appModalTitle}}</text>
+    <text class="app-modal-content">{{appModalContent}}</text>
+    <button class="app-modal-btn" bindtap="closeAppModal">确定</button>
+  </view>
+</view><view class="app-tabbar-mp" wx:if="{{showMpTabBar}}">
+  <view wx:for="{{mpTabItems}}" wx:key="page_key" class="tab-item-mp" catchtap="onMpTabSwitch" data-key="{{item.page_key}}">
+    <image class="tab-icon-mp" src="{{item.page_key == mpActiveTab ? item.iconActive : item.icon}}" mode="aspectFit"/>
+    <text class="tab-text-mp" style="color:{{item.page_key == mpActiveTab ? mpTabPrimary : '#999999'}}">{{item.text}}</text>
+  </view>
+</view></view>

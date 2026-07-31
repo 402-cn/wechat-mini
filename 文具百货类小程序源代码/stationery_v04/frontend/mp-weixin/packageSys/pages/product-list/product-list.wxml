@@ -1,0 +1,27 @@
+<view class="mp-shell has-tab"><view class="sub-page-nav">
+  <view class="sub-back" bindtap="goBack"><text>‹ 返回</text></view>
+  <text class="sub-title">商品列表</text>
+</view><view class="product-list-page product-box grid cat-layout-top" id="product-list-page"><scroll-view class="list-cat-bar" scroll-x enable-flex>
+    <view class="cat-chip {{productCategoryId === 0 ? 'active' : ''}}" bindtap="pickProductCategory" data-id="0">全部</view>
+    <view wx:for="{{productCategories}}" wx:key="id" class="cat-chip {{productCategoryId === item.id ? 'active' : ''}}" bindtap="pickProductCategory" data-id="{{item.id}}">{{item.name}}</view>
+  </scroll-view><view class="product-grid" style="grid-template-columns:repeat(2,1fr)">
+    <view class="product-card" wx:for="{{productListItems}}" wx:key="id" bindtap="goProduct" data-id="{{item.id}}">
+      <image wx:if="{{item.imageSrc}}" class="product-img" src="{{item.imageSrc}}" mode="aspectFill" lazy-load="{{false}}"/>
+    <text class="product-name">{{item.name}}</text>
+    <text class="product-price">¥{{item.price}}</text>
+    <view class="product-add-cart" catchtap="addCartFromList" data-id="{{item.id}}" style="background:#e74c3c">+</view><button class="product-cart-btn product-buy-btn" catchtap="buyNowFromList" data-id="{{item.id}}" style="background:#e74c3c">立即购买</button>
+    </view>
+    <view wx:if="{{!productListItems.length && !productListLoading}}" class="empty">暂无商品</view>
+  </view></view>
+<view class="app-modal-mask" wx:if="{{appModalShow}}" catchtouchmove="true">
+  <view class="app-modal-box" catchtap="noop">
+    <text class="app-modal-title">{{appModalTitle}}</text>
+    <text class="app-modal-content">{{appModalContent}}</text>
+    <button class="app-modal-btn" bindtap="closeAppModal">确定</button>
+  </view>
+</view><view class="app-tabbar-mp" wx:if="{{showMpTabBar}}">
+  <view wx:for="{{mpTabItems}}" wx:key="page_key" class="tab-item-mp" catchtap="onMpTabSwitch" data-key="{{item.page_key}}">
+    <image class="tab-icon-mp" src="{{item.page_key == mpActiveTab ? item.iconActive : item.icon}}" mode="aspectFit"/>
+    <text class="tab-text-mp" style="color:{{item.page_key == mpActiveTab ? mpTabPrimary : '#999999'}}">{{item.text}}</text>
+  </view>
+</view></view>

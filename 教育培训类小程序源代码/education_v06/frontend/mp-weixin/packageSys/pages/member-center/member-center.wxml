@@ -1,0 +1,20 @@
+<view class="mp-shell has-tab"><view class="page">
+  <view class="hero"><text class="title">{{levelName}}</text><text class="sub">积分 {{points}} · 余额 ¥{{balance}}</text></view>
+  <view class="level" wx:for="{{levels}}" wx:key="id">
+    <view><text class="name">{{item.name}}</text><text class="meta">积分≥{{item.min_points}}</text></view>
+    <button wx:if="{{item.id>curLevel}}" size="mini" data-id="{{item.id}}" bindtap="upgrade">升级</button>
+    <text wx:else class="cur">当前</text>
+  </view>
+</view>
+<view class="app-modal-mask" wx:if="{{appModalShow}}" catchtouchmove="true">
+  <view class="app-modal-box" catchtap="noop">
+    <text class="app-modal-title">{{appModalTitle}}</text>
+    <text class="app-modal-content">{{appModalContent}}</text>
+    <button class="app-modal-btn" bindtap="closeAppModal">确定</button>
+  </view>
+</view><view class="app-tabbar-mp" wx:if="{{showMpTabBar}}">
+  <view wx:for="{{mpTabItems}}" wx:key="page_key" class="tab-item-mp" catchtap="onMpTabSwitch" data-key="{{item.page_key}}">
+    <image class="tab-icon-mp" src="{{item.page_key == mpActiveTab ? item.iconActive : item.icon}}" mode="aspectFit"/>
+    <text class="tab-text-mp" style="color:{{item.page_key == mpActiveTab ? mpTabPrimary : '#999999'}}">{{item.text}}</text>
+  </view>
+</view></view>

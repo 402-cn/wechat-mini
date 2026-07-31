@@ -1,0 +1,26 @@
+<view class="mp-shell has-tab"><view class="sub-page-nav">
+  <view class="sub-back" bindtap="goBack"><text>‹ 返回</text></view>
+  <text class="sub-title">商品详情</text>
+</view><view class="page" wx:if="{{product}}">
+  <image class="cover" src="{{product.image}}" mode="widthFix"/>
+  <view class="title">{{product.name}}</view>
+  <view class="price">¥{{product.price}}</view>
+  <rich-text class="desc" nodes="{{product.descriptionHtml}}"/>
+  <view class="actions">
+    <button bindtap="addCart">加入购物车</button>
+    <button type="primary" bindtap="buyNow">立即购买</button>
+  </view>
+</view>
+<view wx:else class="empty">加载中...</view>
+<view class="app-modal-mask" wx:if="{{appModalShow}}" catchtouchmove="true">
+  <view class="app-modal-box" catchtap="noop">
+    <text class="app-modal-title">{{appModalTitle}}</text>
+    <text class="app-modal-content">{{appModalContent}}</text>
+    <button class="app-modal-btn" bindtap="closeAppModal">确定</button>
+  </view>
+</view><view class="app-tabbar-mp" wx:if="{{showMpTabBar}}">
+  <view wx:for="{{mpTabItems}}" wx:key="page_key" class="tab-item-mp" catchtap="onMpTabSwitch" data-key="{{item.page_key}}">
+    <image class="tab-icon-mp" src="{{item.page_key == mpActiveTab ? item.iconActive : item.icon}}" mode="aspectFit"/>
+    <text class="tab-text-mp" style="color:{{item.page_key == mpActiveTab ? mpTabPrimary : '#999999'}}">{{item.text}}</text>
+  </view>
+</view></view>

@@ -1,0 +1,7 @@
+-- 文章演示种子数据（封面与画布 articleCover 一致）
+INSERT IGNORE INTO article_categories (id, name, sort_order, status) VALUES (1, '默认分类', 0, 1);
+INSERT IGNORE INTO articles (id, title, cover, summary, content, view_count, is_demo, is_featured, sort_order, status) VALUES (1, '婚纱摄影风格指南', './assets/images/wedding_7.jpg', '选片与拍摄小贴士', '<p><strong>本文为演示数据</strong>，安装后可在 PHP 后台「文章管理」中修改或删除。正式运营请替换为真实内容。</p><!--ADMIN_GUIDE_FOOTER-->', 128, 0, 1, 99, 1);
+INSERT IGNORE INTO articles (id, title, cover, summary, content, view_count, is_demo, is_featured, sort_order, status) VALUES (2, '婚礼筹备时间表', './assets/images/wedding_8.jpg', '提前3个月开始准备', '<p>演示正文。部署后可在 PHP 后台「文章管理」中修改或删除。</p><!--ADMIN_GUIDE_FOOTER-->', 86, 0, 1, 98, 1);
+INSERT IGNORE INTO articles (id, title, cover, summary, content, view_count, is_demo, is_featured, sort_order, status) VALUES (3, '礼服挑选攻略', './assets/images/wedding_9.jpg', '演示数据', '<p>演示正文。部署后可在 PHP 后台「文章管理」中修改或删除。</p><!--ADMIN_GUIDE_FOOTER-->', 203, 0, 1, 97, 1);
+INSERT IGNORE INTO articles (id, title, cover, summary, content, view_count, is_demo, is_featured, sort_order, status) VALUES (4, '婚礼预算规划', './assets/images/wedding_48.jpg', '演示数据', '<p>演示正文。部署后可在 PHP 后台「文章管理」中修改或删除。</p><!--ADMIN_GUIDE_FOOTER-->', 57, 0, 1, 96, 1);
+INSERT IGNORE INTO articles (id, title, cover, summary, content, view_count, is_demo, is_featured, sort_order, status) VALUES (5, '客片欣赏与案例', './assets/images/wedding_49.jpg', '演示数据', '<p>演示正文。部署后可在 PHP 后台「文章管理」中修改或删除。</p><!--ADMIN_GUIDE_FOOTER-->', 91, 0, 1, 95, 1);

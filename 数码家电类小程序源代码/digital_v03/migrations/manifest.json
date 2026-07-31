@@ -1,0 +1,40 @@
+{
+  "version": "20260731135901",
+  "siteName": "数码家电 · 营销爆款",
+  "tables": [
+    {
+      "name": "contact_digital",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "formId": "contact_digital",
+      "formName": "在线留言",
+      "tableName": "contact_digital",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言内容",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}

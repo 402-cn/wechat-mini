@@ -1,0 +1,40 @@
+{
+  "version": "20260731143925",
+  "siteName": "医疗健康 · 视觉瀑布",
+  "tables": [
+    {
+      "name": "contact_medical",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "formId": "contact_medical",
+      "formName": "在线留言",
+      "tableName": "contact_medical",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言内容",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}

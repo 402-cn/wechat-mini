@@ -1,0 +1,40 @@
+{
+  "version": "20260731144118",
+  "siteName": "奶茶饮品 · 营销爆款",
+  "tables": [
+    {
+      "name": "contact_milk_tea",
+      "columns": [
+        "id",
+        "created_at",
+        "name",
+        "phone",
+        "message"
+      ]
+    }
+  ],
+  "forms": [
+    {
+      "formId": "contact_milk_tea",
+      "formName": "在线留言",
+      "tableName": "contact_milk_tea",
+      "fields": [
+        {
+          "key": "name",
+          "label": "姓名",
+          "type": "text"
+        },
+        {
+          "key": "phone",
+          "label": "手机号",
+          "type": "phone"
+        },
+        {
+          "key": "message",
+          "label": "留言内容",
+          "type": "textarea"
+        }
+      ]
+    }
+  ]
+}
